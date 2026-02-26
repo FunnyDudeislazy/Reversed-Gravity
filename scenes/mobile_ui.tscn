@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://bvijp3qjkdrko"]
+
+[ext_resource type="Script" uid="uid://diuofvm4cc0hx" path="res://scripts/UI.gd" id="1_ll7hi"]
+[ext_resource type="Texture2D" uid="uid://df61yjime6flb" path="res://graphics/jumpbutton.png" id="2_uqj2s"]
+[ext_resource type="Texture2D" uid="uid://ficuqscc20ty" path="res://graphics/switchbutton.png" id="3_ri1lb"]
+[ext_resource type="Texture2D" uid="uid://dsp73r4udo7pq" path="res://graphics/leftbutton.png" id="4_5d2um"]
+[ext_resource type="Texture2D" uid="uid://c2w80dge7cewf" path="res://graphics/rightbutton.png" id="5_rphdq"]
+[ext_resource type="Texture2D" uid="uid://rjtccf0d3bs5" path="res://graphics/pause.png" id="6_uqj2s"]
+
+[node name="MobileUI" type="CanvasLayer" unique_id=527240793]
+process_mode = 3
+script = ExtResource("1_ll7hi")
+
+[node name="JumpTSB" type="TouchScreenButton" parent="." unique_id=604784772]
+process_mode = 3
+position = Vector2(1088, 512)
+scale = Vector2(2, 2)
+texture_normal = ExtResource("2_uqj2s")
+
+[node name="SwitchTSB" type="TouchScreenButton" parent="." unique_id=1262119575]
+process_mode = 3
+position = Vector2(896, 512)
+scale = Vector2(1.9999999, 1.96875)
+texture_normal = ExtResource("3_ri1lb")
+
+[node name="LeftTSB" type="TouchScreenButton" parent="." unique_id=1702484052]
+process_mode = 3
+position = Vector2(64, 512)
+scale = Vector2(2, 2)
+texture_normal = ExtResource("4_5d2um")
+
+[node name="RightTSB" type="TouchScreenButton" parent="." unique_id=427694939]
+process_mode = 3
+position = Vector2(256, 512)
+scale = Vector2(2, 2)
+texture_normal = ExtResource("5_rphdq")
+
+[node name="PauseTSB" type="TouchScreenButton" parent="." unique_id=1276162081]
+process_mode = 3
+position = Vector2(32, 32)
+texture_normal = ExtResource("6_uqj2s")
+
+[connection signal="pressed" from="JumpTSB" to="." method="_on_jump_tsb_pressed"]
+[connection signal="pressed" from="SwitchTSB" to="." method="_on_switch_tsb_pressed"]
+[connection signal="pressed" from="LeftTSB" to="." method="_on_left_tsb_pressed"]
+[connection signal="released" from="LeftTSB" to="." method="_on_left_tsb_released"]
+[connection signal="pressed" from="RightTSB" to="." method="_on_right_tsb_pressed"]
+[connection signal="released" from="RightTSB" to="." method="_on_right_tsb_released"]
+[connection signal="pressed" from="PauseTSB" to="." method="_on_pause_tsb_pressed"]
