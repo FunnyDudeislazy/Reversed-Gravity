@@ -1,0 +1,151 @@
+[gd_scene format=3 uid="uid://bduvvci8wcu0r"]
+
+[ext_resource type="Script" uid="uid://et1ctp4hvhfc" path="res://scripts/settings.gd" id="1_r6d6q"]
+
+[node name="Settings" type="Control" unique_id=1479096965]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_r6d6q")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1468049641]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(2, 2)
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+
+[node name="TabContainer" type="TabContainer" parent="MarginContainer" unique_id=1581889396]
+layout_mode = 2
+current_tab = 0
+clip_tabs = false
+
+[node name="Gameplay" type="VBoxContainer" parent="MarginContainer/TabContainer" unique_id=1393618337]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/TabContainer/Gameplay" unique_id=2017483254]
+layout_mode = 2
+
+[node name="Resolution" type="Label" parent="MarginContainer/TabContainer/Gameplay/HBoxContainer" unique_id=1962049828]
+layout_mode = 2
+text = "Resolution  :"
+
+[node name="resolution" type="OptionButton" parent="MarginContainer/TabContainer/Gameplay/HBoxContainer" unique_id=1599549807]
+layout_mode = 2
+item_count = 4
+popup/item_0/text = "1280 x 720"
+popup/item_0/id = 0
+popup/item_1/text = "1680 x 1050"
+popup/item_1/id = 1
+popup/item_2/text = "1920 x 1080"
+popup/item_2/id = 2
+popup/item_3/text = "2560 x 1440"
+popup/item_3/id = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/TabContainer/Gameplay" unique_id=878174511]
+layout_mode = 2
+
+[node name="Fullscreen" type="Label" parent="MarginContainer/TabContainer/Gameplay/HBoxContainer2" unique_id=1747822752]
+layout_mode = 2
+text = "Fullscreen  :"
+
+[node name="fullscreenButton" type="CheckButton" parent="MarginContainer/TabContainer/Gameplay/HBoxContainer2" unique_id=315711751]
+layout_mode = 2
+
+[node name="Audio" type="VBoxContainer" parent="MarginContainer/TabContainer" unique_id=498662904]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/TabContainer/Audio" unique_id=879792672]
+layout_mode = 2
+
+[node name="Volume" type="Label" parent="MarginContainer/TabContainer/Audio/HBoxContainer2" unique_id=120364449]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Volume :"
+
+[node name="volumeSlider" type="HSlider" parent="MarginContainer/TabContainer/Audio/HBoxContainer2" unique_id=1130405150]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/TabContainer/Audio" unique_id=1449440800]
+layout_mode = 2
+
+[node name="Mute" type="Label" parent="MarginContainer/TabContainer/Audio/HBoxContainer" unique_id=1023535723]
+layout_mode = 2
+text = "Mute :"
+
+[node name="muteButton" type="CheckButton" parent="MarginContainer/TabContainer/Audio/HBoxContainer" unique_id=1512376863]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "Mute"
+
+[node name="Controls" type="VBoxContainer" parent="MarginContainer/TabContainer" unique_id=363769635]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 16
+metadata/_tab_index = 2
+
+[node name="Gameplay" type="VBoxContainer" parent="MarginContainer/TabContainer/Controls" unique_id=732770638]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="MovingLeft" type="Label" parent="MarginContainer/TabContainer/Controls/Gameplay" unique_id=1193876352]
+layout_mode = 2
+text = "Moving Left : A"
+
+[node name="MovingRight" type="Label" parent="MarginContainer/TabContainer/Controls/Gameplay" unique_id=345962130]
+layout_mode = 2
+text = "Moving Right : D"
+
+[node name="Jumping" type="Label" parent="MarginContainer/TabContainer/Controls/Gameplay" unique_id=1204831116]
+layout_mode = 2
+text = "Jumping : Spacebar"
+
+[node name="SwitchingGravity" type="Label" parent="MarginContainer/TabContainer/Controls/Gameplay" unique_id=170227136]
+layout_mode = 2
+text = "Switching Gravity : Q"
+
+[node name="Fullscreen" type="Label" parent="MarginContainer/TabContainer/Controls/Gameplay" unique_id=1930923960]
+layout_mode = 2
+text = "Fullscreen Mode : F11"
+
+[node name="Pause" type="Label" parent="MarginContainer/TabContainer/Controls/Gameplay" unique_id=1124502923]
+layout_mode = 2
+text = "Pausing : Esc"
+
+[node name="About" type="VBoxContainer" parent="MarginContainer/TabContainer" unique_id=1142962705]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 3
+
+[node name="Label" type="Label" parent="MarginContainer/TabContainer/About" unique_id=1392005043]
+layout_mode = 2
+text = "Made with godot!"
+
+[node name="backButton" type="Button" parent="." unique_id=1371698158]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -100.0
+offset_right = 250.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 64
+text = "Back"
+
+[connection signal="item_selected" from="MarginContainer/TabContainer/Gameplay/HBoxContainer/resolution" to="." method="_on_resolution_item_selected"]
+[connection signal="toggled" from="MarginContainer/TabContainer/Gameplay/HBoxContainer2/fullscreenButton" to="." method="_on_fullscreen_button_toggled"]
+[connection signal="value_changed" from="MarginContainer/TabContainer/Audio/HBoxContainer2/volumeSlider" to="." method="_on_volume_slider_value_changed"]
+[connection signal="button_down" from="MarginContainer/TabContainer/Audio/HBoxContainer/muteButton" to="." method="_on_mute_button_button_down"]
+[connection signal="toggled" from="MarginContainer/TabContainer/Audio/HBoxContainer/muteButton" to="." method="_on_mute_button_toggled"]
+[connection signal="button_down" from="backButton" to="." method="_on_back_button_button_down"]
